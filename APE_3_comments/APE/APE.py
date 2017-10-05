@@ -17,8 +17,8 @@ class ApeSpider(scrapy.Spider):
             items['comments'] = comment
             yield items
 
-        next_link = response.xpath('//a[@class="next"]/@href').extract()[0]
+        next_link = response.xpath('//a[@class="next"]/@href').extract()[0]#这里是是翻页处理，获取下一页链接，接下来通过if判断，链接是否拿到
         if len(next_link):
             url = self.baseURL + next_link
-            yield scrapy.Request(url, callback = self.parse)
+            yield scrapy.Request(url, callback = self.parse)#然后把拼接好的链接，回调给parse函数
 
