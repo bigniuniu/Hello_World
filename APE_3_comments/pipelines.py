@@ -11,7 +11,7 @@ class Ape3CommentsPipeline(object):
     def __init__(self):
         self.f = open("w://python/txt files/白夜追凶.json",'a+',encoding = 'utf-8')
 
-    def process_item(self, item, spider):
+    def process_item(self, item, spider):#这个函数负责把信息写到本地
         content = json.dumps(dict(item),ensure_ascii= False)
         self.f.write(str(content)+'\n')
         return item
